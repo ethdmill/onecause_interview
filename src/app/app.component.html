@@ -1,0 +1,46 @@
+<!-- Math Challenge Card -->
+<div style="height: 100%; width: 100%; padding-top: 16px; background-color: antiquewhite;" fxLayout="row" fxLayoutAlign="center">
+  <div style="height: 400px; width: 400px;" fxLayout="column" fxLayoutAlign="center">
+    <mat-card fxLayout="column" fxFlexFill >
+      <mat-card-header fxFlex="none">
+        <mat-card-title>Math Challenge</mat-card-title>
+        <mat-card-subtitle>Addition</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content fxFlex style="padding-left: 16px; padding-right: 16px;">
+        <div id="question" fxLayout="column" fxLayoutAlign="end">
+          <!-- X -->
+          <div fxLayout="row" style="padding: 8px; width: 100px;">
+            <div style="width: 100%; text-align: right;">
+              <span id="xValue" [innerHtml]="xValue"></span>
+            </div>
+          </div>
+          <!-- Y -->
+          <div fxLayout="row" style="padding: 8px; width: 100px; border-bottom: 2px solid black;">
+            <div>
+              +
+            </div>
+            <div style="width: 100%; text-align: right;">
+              <span id="yValue" [innerHtml]="yValue"></span>
+            </div>
+          </div>
+          <!-- Answer -->
+          <mat-form-field style="padding: 8px; width: 92px;">
+            <mat-label>Answer</mat-label>
+            <input id="input" #appInputSelect matInput type="number" [(ngModel)]="answer" style="text-align: right;">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions fxFlex="none" style="padding-left: 16px; padding-right: 16px;">
+        <div id="tooltip" matTooltip="Please provide an answer." [matTooltipDisabled]="answer !== null">
+          <button id="submit"
+                  mat-raised-button 
+                  color="primary" 
+                  (click)="checkAnswer()" 
+                  [disabled]="answer == null">
+            Answer
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>  
+  </div>
+</div>
